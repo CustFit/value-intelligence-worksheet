@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Value Intelligence Worksheet</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 18px;
+            margin-top: 30px;
+        }
+        .input-section {
+            margin-bottom: 30px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0052a3;
+        }
+        .save-section {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Value Intelligence Worksheet</h1>
+
+    <div class="input-section">
+        <h2>Step 1: Value Mapping</h2>
+        <input type="text" placeholder="Customer Name">
+        <input type="text" placeholder="Success Milestones">
+        <input type="text" placeholder="Time to Value (days)">
+        <button onclick="addCustomer()">Add Customer</button>
+    </div>
+
+    <div class="input-section">
+        <h2>Step 2: Resource Tracking</h2>
+        <textarea placeholder="Map all touchpoints (sales, support, success)"></textarea>
+        <textarea placeholder="Document resource hours per customer"></textarea>
+        <textarea placeholder="Note which activities drive most value"></textarea>
+    </div>
+
+    <div class="input-section">
+        <h2>Step 3: Value Leakage Audit</h2>
+        <textarea placeholder="Identify where customers get stuck"></textarea>
+        <textarea placeholder="Spot resource-heavy, low-value activities"></textarea>
+        <textarea placeholder="Find missed expansion opportunities"></textarea>
+    </div>
+
+    <div class="save-section">
+        <button onclick="saveAsPDF()">Save as PDF</button>
+        <button onclick="saveData()">Save Data</button>
+    </div>
+
+    <script>
+        function addCustomer() {
+            // Add customer logic here
+            alert('Customer added!');
+        }
+
+        function saveAsPDF() {
+            window.print();
+        }
+
+        function saveData() {
+            // Save data logic here
+            alert('Data saved!');
+        }
+    </script>
+</body>
+</html>
