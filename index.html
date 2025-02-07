@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Value Intelligence Worksheet</title>
+    <title>Value Intelligence Scorecard</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -10,89 +10,170 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
+            background-color: #f5f5f5;
         }
         h1 {
             font-size: 24px;
             margin-bottom: 30px;
+            text-align: center;
+            color: #333;
         }
-        h2 {
-            font-size: 18px;
-            margin-top: 30px;
+        .scorecard-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .input-section {
-            margin-bottom: 30px;
+        .score-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            transition: background-color 0.2s;
         }
-        input, textarea {
-            width: 100%;
+        .score-item:hover {
+            background: #e9ecef;
+        }
+        select {
             padding: 8px;
-            margin-bottom: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            box-sizing: border-box;
-        }
-        textarea {
-            height: 100px;
-            resize: vertical;
-        }
-        button {
-            background-color: #0066cc;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
+            width: 80px;
             cursor: pointer;
         }
-        button:hover {
-            background-color: #0052a3;
+        select:focus {
+            outline: none;
+            border-color: #0066cc;
         }
-        .save-section {
-            margin-top: 30px;
+        .results {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border-left: 4px solid #0066cc;
+        }
+        .category-label {
+            font-weight: 500;
+            font-size: 16px;
+            color: #444;
+        }
+        .results h2 {
+            margin-top: 0;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <h1>Value Intelligence Worksheet</h1>
-
-    <div class="input-section">
-        <h2>Step 1: Value Mapping</h2>
-        <input type="text" placeholder="Customer Name">
-        <input type="text" placeholder="Success Milestones">
-        <input type="text" placeholder="Time to Value (days)">
-        <button onclick="addCustomer()">Add Customer</button>
-    </div>
-
-    <div class="input-section">
-        <h2>Step 2: Resource Tracking</h2>
-        <textarea placeholder="Map all touchpoints (sales, support, success)"></textarea>
-        <textarea placeholder="Document resource hours per customer"></textarea>
-        <textarea placeholder="Note which activities drive most value"></textarea>
-    </div>
-
-    <div class="input-section">
-        <h2>Step 3: Value Leakage Audit</h2>
-        <textarea placeholder="Identify where customers get stuck"></textarea>
-        <textarea placeholder="Spot resource-heavy, low-value activities"></textarea>
-        <textarea placeholder="Find missed expansion opportunities"></textarea>
-    </div>
-
-    <div class="save-section">
-        <button onclick="saveAsPDF()">Save as PDF</button>
-        <button onclick="saveData()">Save Data</button>
+    <h1>Value Intelligence Scorecard</h1>
+    <div class="scorecard-section">
+        <div class="score-item">
+            <span class="category-label">Strategy:</span>
+            <select onchange="updateScores()" id="strategy">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+        <div class="score-item">
+            <span class="category-label">Leadership:</span>
+            <select onchange="updateScores()" id="leadership">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+        <div class="score-item">
+            <span class="category-label">People:</span>
+            <select onchange="updateScores()" id="people">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+        <div class="score-item">
+            <span class="category-label">Operations:</span>
+            <select onchange="updateScores()" id="operations">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+        <div class="score-item">
+            <span class="category-label">Digital:</span>
+            <select onchange="updateScores()" id="digital">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+        <div class="results">
+            <h2>Results:</h2>
+            <p>Total Score: <span id="totalScore">0</span>/50</p>
+            <p>Grade: <span id="grade">F</span></p>
+        </div>
     </div>
 
     <script>
-        function addCustomer() {
-            // Add customer logic here
-            alert('Customer added!');
-        }
+        function updateScores() {
+            const strategy = parseInt(document.getElementById('strategy').value);
+            const leadership = parseInt(document.getElementById('leadership').value);
+            const people = parseInt(document.getElementById('people').value);
+            const operations = parseInt(document.getElementById('operations').value);
+            const digital = parseInt(document.getElementById('digital').value);
 
-        function saveAsPDF() {
-            window.print();
-        }
+            const total = strategy + leadership + people + operations + digital;
+            document.getElementById('totalScore').textContent = total;
 
-        function saveData() {
-            // Save data logic here
-            alert('Data saved!');
+            let grade = 'F';
+            if (total >= 45) grade = 'A';
+            else if (total >= 35) grade = 'B';
+            else if (total >= 25) grade = 'C';
+            else if (total >= 15) grade = 'D';
+
+            document.getElementById('grade').textContent = grade;
         }
     </script>
 </body>
